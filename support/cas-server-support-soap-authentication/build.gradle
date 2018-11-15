@@ -64,3 +64,5 @@ task moveGeneratedSourceFiles(type: Copy, description: "Move generated files by 
     }
 }
 generateJaxb2Classes.finalizedBy moveGeneratedSourceFiles
+
+compileJava.dependsOn generateJaxb2Classes
