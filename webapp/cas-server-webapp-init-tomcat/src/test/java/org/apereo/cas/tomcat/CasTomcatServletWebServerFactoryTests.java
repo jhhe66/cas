@@ -32,20 +32,21 @@ import org.springframework.test.context.junit4.rules.SpringMethodRule;
     CasEmbeddedContainerTomcatConfiguration.class,
     CasEmbeddedContainerTomcatFiltersConfiguration.class
 },
-    webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+    webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @EnableConfigurationProperties({CasConfigurationProperties.class, ServerProperties.class})
 @TestPropertySource(properties = {
     "server.port=8182",
-    "cas.server.tomcat.clustering.sessionClusteringEnabled=false",
+    "cas.server.tomcat.clustering.enabled=true",
     "cas.server.tomcat.sslValve.enabled=true",
-    "cas.server.tomcat.httpProxy.enabled=true",
+    // "cas.server.tomcat.httpProxy.enabled=true",
+    // "cas.server.tomcat.httpProxy.proxyPort=9090",
+    // "cas.server.tomcat.httpProxy.redirectPort=9091",
     "cas.server.tomcat.http.enabled=true",
     "cas.server.tomcat.http.port=9190",
     "cas.server.tomcat.ajp.enabled=true",
     "cas.server.tomcat.ajp.port=9944",
     "cas.server.tomcat.basicAuthn.enabled=true",
     "cas.server.tomcat.extAccessLog.enabled=true",
-    "cas.server.tomcat.extAccessLog.pattern=true",
     "cas.server.tomcat.rewriteValve.location=classpath:/container/tomcat/rewrite.config"
 })
 @Slf4j
